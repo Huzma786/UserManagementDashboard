@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+Objective
+Develop a simple web application where users can view, add, edit, and delete user details from a mock backend API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+User Interface:
+Display a list of users with details such as ID, First Name, Last Name, Email, and Department.
+Provide buttons or links to "Add", "Edit", and "Delete" users.
+A form to input details of a new user or edit details of an existing user.
+Backend Interaction:
+Use JSONPlaceholder, a free online REST API that you can use for demonstration and test purposes.
+Specifically, use the '/users' endpoint to fetch and manipulate user data.
 
-In the project directory, you can run:
 
-### `npm start`
+Functionality:
+View: Display all users by fetching data from the '/users' endpoint.
+Add: Allow adding a new user by posting to the '/users' endpoint. (Note: JSONPlaceholder won't actually add the user, but will simulate a successful response.)
+Edit: Allow editing an existing user. This should involve fetching the current data for a user, allowing for edits, and then putting the updated data back via the API.
+Delete: Allow users to be deleted, by sending a delete request to the API.
+Error Handling:
+Handle scenarios where the API request might fail - show an error message to the user in such cases.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Challenges Faced
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Mock API Limitations:
 
-### `npm test`
+The JSONPlaceholder API does not persist changes. Any added, edited, or deleted data is not saved. This required maintaining the local UI state separately to simulate real-time updates.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Dynamic Form Handling:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Managing the form logic for both "Add" and "Edit" operations within the same component was challenging. This was solved by pre-filling the form for "Edit" and resetting it for "Add."
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Error Handling:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Implementing robust error handling for API requests was essential to provide a better user experience. Edge cases such as API downtime or invalid data required additional attention.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+4. Limited Timeframe:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The tight timeline restricted the addition of advanced features such as pagination, responsive design, or comprehensive unit testing.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Improvements to Consider
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If given more time, the following enhancements could be implemented:
 
-### Analyzing the Bundle Size
+1. Persistent Backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Replace JSONPlaceholder with a real backend (e.g., Node.js + Express + MongoDB) for actual data persistence.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+2. Pagination:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Use server-side pagination by sending _page and _limit query parameters to the API.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+3. Form Validation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Add client-side validation for input fields using libraries like Formik or React Hook Form.
+
