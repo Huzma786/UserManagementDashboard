@@ -1,115 +1,64 @@
-Write the objective of the assignment yourself
+Objective
+Develop a simple web application where users can view, add, edit, and delete user details from a mock backend API.
 
-### Refer to the image below:
 
-Add UI reference image yourself
+User Interface:
+Display a list of users with details such as ID, First Name, Last Name, Email, and Department.
+Provide buttons or links to "Add", "Edit", and "Delete" users.
+A form to input details of a new user or edit details of an existing user.
+Backend Interaction:
+Use JSONPlaceholder, a free online REST API that you can use for demonstration and test purposes.
+Specifically, use the '/users' endpoint to fetch and manipulate user data.
 
-<div style="text-align: center;">
-     <!-- <img src="remove this text and add the image URL" alt="ui"> -->
-</div>
-<br/>
 
-### Design Files
+Functionality:
+View: Display all users by fetching data from the '/users' endpoint.
+Add: Allow adding a new user by posting to the '/users' endpoint. (Note: JSONPlaceholder won't actually add the user, but will simulate a successful response.)
+Edit: Allow editing an existing user. This should involve fetching the current data for a user, allowing for edits, and then putting the updated data back via the API.
+Delete: Allow users to be deleted, by sending a delete request to the API.
+Error Handling:
+Handle scenarios where the API request might fail - show an error message to the user in such cases.
 
-<details>
-<summary>Add Route Name</summary>
-<br/>
-Add the design files according to the route (if any) and responsiveness
+Challenges Faced
 
-<!-- - [Extra Small (Size < 576px) and Small (Size >= 576px)](remove this text and add the image URL here)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](remove this text and add the image URL here) -->
+1. Mock API Limitations:
 
-</details>
+The JSONPlaceholder API does not persist changes. Any added, edited, or deleted data is not saved. This required maintaining the local UI state separately to simulate real-time updates.
 
-### Set Up Instructions
 
-<details>
-<summary>Click to view</summary>
 
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
+2. Dynamic Form Handling:
 
-</details>
+Managing the form logic for both "Add" and "Edit" operations within the same component was challenging. This was solved by pre-filling the form for "Edit" and resetting it for "Add."
 
-### Assignment Completion Instructions
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
 
-The app must have the following functionalities:
+3. Error Handling:
 
-- Add all the functionalities to be achieved(according to the route, if any) yourself
+Implementing robust error handling for API requests was essential to provide a better user experience. Edge cases such as API downtime or invalid data required additional attention.
 
-</details>
 
-### Assignment Completion Checklist
 
-<details>
-<summary>Click to view</summary>
+4. Limited Timeframe:
 
-- **Along with the below points, add your checklist specific to the assignment**
+The tight timeline restricted the addition of advanced features such as pagination, responsive design, or comprehensive unit testing.
 
-- Read the instructions given in the assignment carefully and list down the **Assignment Completion Checklist** for the assignment and start working on it
-- The completion Checklist includes the below-mentioned points
-  - I have completed all the functionalities asked in the assignment
-  - I have used only the resources (Frameworks, Design files, APIs, third-party packages) mentioned in the assignment
-  - I have modified the README.md file based on my assignment instructions
-  - I have completed the assignment **ON TIME**
-- **Note:**
-  - Ensure that you have marked all the checklist points in your completion checklist before submitting the assignment
-  </details>
+Improvements to Consider
 
-### Quick Tips
+If given more time, the following enhancements could be implemented:
 
-<details>
-<summary>Click to view</summary>
-<br>
+1. Persistent Backend:
 
-- Add third-party packages list yourself
-</details>
+Replace JSONPlaceholder with a real backend (e.g., Node.js + Express + MongoDB) for actual data persistence.
 
-### Important Note
 
-<details>
-<summary>Click to view</summary>
-<br/>
 
-- Add any important note here, like user credentials for authentication.
+2. Pagination:
 
-</details>
+Use server-side pagination by sending _page and _limit query parameters to the API.
 
-### Resources
 
-<details>
-<summary>Data Fetch URLs</summary>
-<br/>
 
-- Add the URLs list to fetch the data yourself
+3. Form Validation:
 
-</details>
-
-<details>
-<summary>Image URLs</summary>
-<br/>
-
-- Add the list of all image URLs needed in the assignment yourself.
-
-</details>
-
-<details>
-<summary>Colors</summary>
-<br/>
-
-Add the text and background colours to be used in the assignment yourself.
-
-<!-- <div style="background-color: #3b82f6; width: 150px; padding: 10px; color: white">Hex: #3b82f6</div> -->
-
-</details>
-
-<details>
-<summary>Font-families</summary>
-
-- Add the font-families to be used in the assignment yourself.
-
-</details>
+Add client-side validation for input fields using libraries like Formik or React Hook Form.
